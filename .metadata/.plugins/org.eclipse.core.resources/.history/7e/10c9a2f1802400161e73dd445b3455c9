@@ -1,0 +1,16 @@
+package cn.edu.buaa.springmvc.controller;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+
+import cn.edu.buaa.springmvc.service.LoginService;
+
+@Controller
+public class LoginController {
+	
+	@Resource
+	LoginService service;
+	
+	
+}

@@ -1,0 +1,5 @@
+package cn.edu.buaa.springmvc.service;
+
+public class UserService {
+
+}

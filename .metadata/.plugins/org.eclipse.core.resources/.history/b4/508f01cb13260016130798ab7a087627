@@ -1,0 +1,6 @@
+package cn.edu.buaa.springmvc.controller;
+
+public class PathvariableController {
+	
+	
+}

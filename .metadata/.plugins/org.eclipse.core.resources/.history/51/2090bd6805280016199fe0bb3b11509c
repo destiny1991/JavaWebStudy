@@ -1,0 +1,13 @@
+package cn.edu.buaa.controller;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+public class ToolController {
+
+	public String toPage(@RequestParam String pagename) {
+		
+		
+		return "" + pagename + ;
+	}
+	
+}

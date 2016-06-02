@@ -1,0 +1,21 @@
+package cn.edu.buaa.springmvc.annotation;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class BetweenValidator implements ConstraintValidator<Between, Integer> {
+	
+	int min;
+	int max;
+	
+	@Override
+	public void initialize(Between constraintAnnotation) {
+		
+	}
+
+	@Override
+	public boolean isValid(Integer value, ConstraintValidatorContext context) {
+		return false;
+	}
+
+}

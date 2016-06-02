@@ -1,0 +1,25 @@
+package com.buaa.springStudy;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+
+
+public class HelloWorldTest 
+{
+    public static void main( String[] args )
+    {
+      //  ApplicationContext actx = new FileSystemXmlApplicationContext("config.xml");
+       // BeanFactory factory = new XmlBeanFactory(new ClassPathResource("config.xml"));
+    	BeanFactory beanFactory = 
+        		new ClassPathXmlApplicationContext("conf/conf-instance.xml");
+
+    	
+        Resource r = new FileSystemResource("helloMessage.xml");
+        BeanFactory f = new XmlBeanFactory(r);
+        HelloWorld helloWorld = (HelloWorld)factory.getBean("HelloWorld");
+        System.out.println(helloWorld.getMsg()+helloWorld.getDate());
+    }
+}

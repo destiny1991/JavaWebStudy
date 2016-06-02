@@ -1,0 +1,15 @@
+package cn.edu.buaa.springmvc.controller;
+
+import org.springframework.stereotype.Controller;
+
+import cn.edu.buaa.springmvc.bean.User;
+
+@Controller
+public class JsonController {
+	
+	public User getUserInfo() {
+		
+	} 
+	
+	
+}

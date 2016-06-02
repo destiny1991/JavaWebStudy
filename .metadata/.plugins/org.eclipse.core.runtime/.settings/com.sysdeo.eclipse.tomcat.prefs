@@ -1,0 +1,7 @@
+computeSourcePath=true
+contextsDir=/Users/destiny/Documents/MyWorkSpace/Java Web/apache-tomcat-8.0.33/conf/Catalina/localhost
+eclipse.preferences.version=1
+managerUrl=http\://localhost\:8080/manager
+tomcatConfigFile=/Users/destiny/Documents/MyWorkSpace/Java Web/apache-tomcat-8.0.33/conf/server.xml
+tomcatDir=/Users/destiny/Documents/MyWorkSpace/Java Web/apache-tomcat-8.0.33
+tomcatVersion=tomcatV7

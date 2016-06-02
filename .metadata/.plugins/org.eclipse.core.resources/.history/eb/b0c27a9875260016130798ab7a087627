@@ -1,0 +1,7 @@
+package cn.edu.buaa.springmvc.annotation;
+
+import javax.validation.ConstraintValidator;
+
+public class BetweenValidator implements ConstraintValidator<Annotation, T> {
+
+}

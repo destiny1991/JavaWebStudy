@@ -1,0 +1,10 @@
+package cn.edu.buaa.springmvc.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LoginService {
+	doLogin(loginPageUrl, sucesspageUrl, uname, upasswd) {
+		
+	}
+}

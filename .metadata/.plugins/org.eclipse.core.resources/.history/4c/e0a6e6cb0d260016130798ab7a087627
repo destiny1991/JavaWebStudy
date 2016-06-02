@@ -1,0 +1,25 @@
+package cn.edu.buaa.springmvc.controller;
+
+import javax.annotation.Resource;
+import javax.swing.table.TableStringConverter;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.buaa.springmvc.service.UserService;
+
+@Controller
+public class UserController {
+
+	@Resource
+	UserService service;
+	
+	@RequestMapping("login")   // 接受login.html这个请求了
+	public String toLoginPage() {
+		return "/WEB-INF/jsp/login.jsp";
+	}
+	
+	public String doLogin() {
+		
+	}
+}

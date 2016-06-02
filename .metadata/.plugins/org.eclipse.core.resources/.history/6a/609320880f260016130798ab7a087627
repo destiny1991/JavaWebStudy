@@ -1,0 +1,17 @@
+package cn.edu.buaa.springmvc.dao;
+
+import org.springframework.stereotype.Repository;
+
+import cn.edu.buaa.springmvc.bean.User;
+
+@Repository
+public class UserDao {
+
+	public User selectByUsername(String username) {
+		
+		
+		
+		return null;
+	}
+
+}
