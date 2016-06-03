@@ -1,0 +1,8 @@
+package cn.edu.buaa.service;
+
+public interface ISysUserService {
+	
+	public void saveWithJDBC(String uName, int age);
+	
+	
+}

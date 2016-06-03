@@ -1,0 +1,5 @@
+package cn.edu.buaa.service.impl;
+
+public class SystemServiceImpl implements ISysUserService {
+
+}

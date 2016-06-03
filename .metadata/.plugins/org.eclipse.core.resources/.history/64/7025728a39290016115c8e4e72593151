@@ -1,0 +1,28 @@
+package cn.edu.buaa.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.buaa.entity.SysUser;
+import cn.edu.buaa.service.ISysUserService;
+
+@Controller
+public class SysUserController {
+	
+	@Resource
+	private ISysUserService service;
+	
+	@RequestMapping("/jdbc/all")
+	public void selectAll() {
+		List<SysUser> userList = service.selectAllWithJDBC();
+		for(SysUser user ：) {
+			
+		}
+		
+	}
+	
+}

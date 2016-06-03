@@ -1,0 +1,64 @@
+package cn.edu.buaa.service.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import cn.edu.buaa.entity.SysUser;
+import cn.edu.buaa.service.ISysUserService;
+
+@Service
+public class SystemServiceImpl implements ISysUserService {
+	
+	@Resource
+	JdbcTemplate jdbcTemplate;
+	
+	@Transactional
+	@Override
+	public void saveWithJDBC(String uName, int uage) {
+		final String sql = "insert into sys_user(uName, uAge) values (?, ?)";
+		jdbcTemplate.update(sql, new Object[]{uName, uage});
+		
+		KeyHolder keys = new GeneratedKeyHolder();
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				
+				
+				return null;
+			}
+		});
+		
+		
+	}
+
+	@Override
+	public SysUser selectById(String uName, int uage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SysUser> selectAllWithJDBC() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteByIdWithJDBC(int uId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

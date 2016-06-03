@@ -1,0 +1,12 @@
+package cn.edu.buaa.controller;
+
+import org.springframework.stereotype.Controller;
+
+import cn.edu.buaa.service.ISysUserService;
+
+@Controller
+public class SysUserController {
+	
+	private ISysUserService
+	
+}

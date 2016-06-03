@@ -1,0 +1,16 @@
+package cn.edu.buaa.service.impl;
+
+import javax.annotation.Resource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+
+import cn.edu.buaa.service.ISysUserService;
+
+@Service
+public class SystemServiceImpl implements ISysUserService {
+	
+	@Resource
+	JdbcTemplate jdbcTemplate;
+	
+}
