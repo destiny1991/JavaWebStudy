@@ -305,3 +305,11 @@ Contains: Missing mysql:mysql-connector-java:jar:javadoc:6.0.2
 !MESSAGE Could not resolve artifact mysql:mysql-connector-java:jar:javadoc:6.0.2
 !SUBENTRY 2 org.eclipse.m2e.core 4 -1 2016-06-03 00:02:50.244
 !MESSAGE Missing mysql:mysql-connector-java:jar:javadoc:6.0.2
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2016-06-03 16:58:27.063
+!MESSAGE Could not publish server configuration for Tomcat v8.0 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2016-06-03 16:58:27.063
+!MESSAGE Multiple Contexts have a path of "/springmvcAndMybatis".
+
+!ENTRY org.eclipse.wst.server.core 4 0 2016-06-03 16:59:06.431
+!MESSAGE Server Tomcat v8.0 Server at localhost failed to start.

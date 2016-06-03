@@ -11,4 +11,10 @@ public interface ISysUserService {
 	public List<SysUser> selectAllWithJDBC();
 	public void deleteByIdWithJDBC(int uId);
 	
+	
+	public void saveWithMybatis(String uName, int uAge);
+	public SysUser selectByIdWithMybatis(int uId);
+	public List<SysUser> selectAllWithMybatis();
+	public void deleteByIdWithMybatis(int uId);
+	
 }

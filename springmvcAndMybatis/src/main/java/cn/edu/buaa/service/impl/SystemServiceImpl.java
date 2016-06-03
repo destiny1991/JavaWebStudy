@@ -17,6 +17,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import cn.edu.buaa.dao.ISysUserDao;
 import cn.edu.buaa.entity.SysUser;
 import cn.edu.buaa.service.ISysUserService;
 
@@ -24,7 +25,10 @@ import cn.edu.buaa.service.ISysUserService;
 public class SystemServiceImpl implements ISysUserService {
 	
 	@Resource
-	JdbcTemplate jdbcTemplate;
+	private JdbcTemplate jdbcTemplate;
+	
+	@Resource
+	private ISysUserDao dao;
 	
 	@Transactional
 	@Override
@@ -66,7 +70,7 @@ public class SystemServiceImpl implements ISysUserService {
 	public List<SysUser> selectAllWithJDBC() {
 		String sql = "select * from sys_user";
 		List<SysUser> userList = new ArrayList<>();
-		jdbcTemplate.update(sql, new RowCallbackHandler() {
+		jdbcTemplate.query(sql, new RowCallbackHandler() {
 			@Override
 			public void processRow(ResultSet rs) throws SQLException {
 				SysUser user = new SysUser();
@@ -84,6 +88,32 @@ public class SystemServiceImpl implements ISysUserService {
 	public void deleteByIdWithJDBC(int uId) {
 		String sql = "delete from sys_user where uId=?";
 		jdbcTemplate.update(sql, uId);
+	}
+
+	
+	@Transactional
+	@Override
+	public void saveWithMybatis(String uName, int uAge) {
+		SysUser user = new SysUser();
+		user.setuName(uName);
+		user.setuAge(uAge);
+		dao.save(user);
+	}
+
+	@Override
+	public SysUser selectByIdWithMybatis(int uId) {
+		return dao.selectById(uId);
+	}
+
+	@Override
+	public List<SysUser> selectAllWithMybatis() {
+		return dao.selectAll();
+	}
+
+	@Transactional
+	@Override
+	public void deleteByIdWithMybatis(int uId) {
+		dao.deleteById(uId);
 	}
 	
 }

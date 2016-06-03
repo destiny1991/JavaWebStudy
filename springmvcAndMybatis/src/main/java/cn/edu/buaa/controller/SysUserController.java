@@ -47,4 +47,38 @@ public class SysUserController {
 		service.saveWithJDBC(uName, uAge);
 		System.out.println("jdbc save success");
 	}
+	
+	
+	// ----------------------------Mybatis-------------------------
+	
+	@RequestMapping("/mybatis/all")
+	public void selectAll2() {
+		List<SysUser> userList = service.selectAllWithMybatis();
+		for(SysUser user : userList) {
+			System.out.println(user);
+		}
+	}
+	
+	@RequestMapping("/mybatis/select/{id}")
+	public void selectById2(@PathVariable Integer id) {
+		SysUser user = service.selectByIdWithMybatis(id);
+		if(user != null) {
+			System.out.println(user);
+		} else {
+			System.out.println("not found user with id : " + id);
+		}
+	}
+	
+	@RequestMapping("/mybatis/delete/{id}")
+	public void delete2(@PathVariable Integer id) {
+		service.deleteByIdWithMybatis(id);
+		System.out.println("jdbc delete success");
+	}
+	
+	@RequestMapping("/mybatis/save")
+	public void save2(@RequestParam String uName, @RequestParam Integer uAge) {
+		service.saveWithMybatis(uName, uAge);
+		System.out.println("jdbc save success");
+	}
+	
 }
