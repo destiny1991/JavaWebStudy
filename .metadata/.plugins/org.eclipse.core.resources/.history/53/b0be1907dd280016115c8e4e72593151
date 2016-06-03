@@ -1,0 +1,10 @@
+package cn.edu.buaa.entity;
+
+public class SysUser {
+	
+	private int uId;
+	private String uName;
+	private int uAge;
+	
+	
+}
