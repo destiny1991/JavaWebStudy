@@ -1,0 +1,155 @@
+
+
+import java.io.IOException;
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import cn.edu.buaa.map.InterfaceJikeUserMap;
+import cn.edu.buaa.pojo.JikeUser;
+
+public class TestMybatis {
+	
+	public static void test1() {
+		String src = "MyBatisConfig.xml";
+		Reader reader = null;
+		SqlSession session = null;
+		try {
+			reader = Resources.getResourceAsReader(src);
+			SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(reader);
+			session = sqlMapper.openSession();
+			JikeUser user = session.selectOne("findById", 1);
+			
+			System.out.println("查询结果：" + user.getUserName() + " " + user.getPassword());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+			
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void testInsert() {
+		String src = "MyBatisConfig.xml";
+		Reader reader = null;
+		SqlSession session = null;
+		try {
+			reader = Resources.getResourceAsReader(src);
+			SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(reader);
+			session = sqlMapper.openSession();
+			
+			JikeUser user = new JikeUser();
+			user.setUserName("honghong");
+			user.setPassword("9878");
+			
+			session.insert("insertUser", user);
+			
+			session.commit();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+			
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void testUpdate() {
+		String src = "MyBatisConfig.xml";
+		Reader reader = null;
+		SqlSession session = null;
+		try {
+			reader = Resources.getResourceAsReader(src);
+			SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(reader);
+			session = sqlMapper.openSession();
+			
+			JikeUser user = new JikeUser();
+			user.setId(3);
+			user.setUserName("lvlv");
+			user.setPassword("6666");
+			
+			session.update("updateUser", user);
+			session.commit();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+			
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void testDelete() {
+		String src = "MyBatisConfig.xml";
+		Reader reader = null;
+		SqlSession session = null;
+		try {
+			reader = Resources.getResourceAsReader(src);
+			SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(reader);
+			session = sqlMapper.openSession();
+			
+			InterfaceJikeUserMap iMap = session.getMapper(InterfaceJikeUserMap.class);
+			iMap.deleteUser(3);
+			
+			session.commit();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+			
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+//		test1();
+		
+//		testInsert();
+		
+//		testUpdate();
+		
+		testDelete();
+	}
+	
+}

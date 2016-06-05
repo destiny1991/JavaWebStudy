@@ -1,0 +1,45 @@
+package cn.edu.buaa.test;
+
+import java.io.IOException;
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import cn.edu.buaa.pojo.JikeUser;
+
+public class Test2 {
+	
+	public static void main(String[] args) {
+		String src = "MyBatisConfig.xml";
+		Reader reader = null;
+		SqlSession session = null;
+		try {
+			reader = Resources.getResourceAsReader(src);
+			SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(reader);
+			session = sqlMapper.openSession();
+			
+			JikeUser user = new JikeUser();
+			user.setUserName(userName);
+			user.setPassword(password);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+			
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+}

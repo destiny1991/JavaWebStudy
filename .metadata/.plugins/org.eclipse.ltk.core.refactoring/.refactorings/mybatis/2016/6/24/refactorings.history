@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;cn.edu.buaa.pojo.JiKeReader.java&apos; to &apos;JikeReader.java&apos;&#x0A;- Original project: &apos;mybatis&apos;&#x0A;- Original element: &apos;cn.edu.buaa.pojo.JiKeReader.java&apos;&#x0A;- Renamed element: &apos;cn.edu.buaa.pojo.JikeReader.java&apos;" description="Rename compilation unit &apos;JiKeReader.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;cn.edu.buaa.pojo{JiKeReader.java" name="JikeReader.java" references="false" stamp="1465096825537" version="1.0"/>
+</session>

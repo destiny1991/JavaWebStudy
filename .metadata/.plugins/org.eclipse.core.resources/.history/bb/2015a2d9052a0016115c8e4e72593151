@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="/">
+
+	<select id="findById" parameterType="int" resultType="JikeUser">
+		select * from jikeUser where id=#{id}
+	</select>
+
+	<insert id="insertUser" parameterType="JiKeUser" statementType="PREPARED"
+		keyProperty="id" useGeneratedKeys="true">
+		insert into jikeUser (userName,password) values
+		(#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateUser" parameterType="JikeUser">
+		update jikeUser set
+			userName=#{userName},
+			password=#{password},
+			where id=#{id}
+	</update>
+	
+</mapper>

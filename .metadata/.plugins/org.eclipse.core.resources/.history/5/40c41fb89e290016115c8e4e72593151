@@ -1,0 +1,25 @@
+package cn.edu.buaa.test;
+
+import java.io.IOException;
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+
+public class Test1 {
+	
+	public static void main(String[] args) {
+		String src = "cn/edu/buaa/map/MyBatis.xml";
+		Reader reader = null;
+		SqlSession session;
+		try {
+			reader = Resources.getResourceAsReader(src);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+}

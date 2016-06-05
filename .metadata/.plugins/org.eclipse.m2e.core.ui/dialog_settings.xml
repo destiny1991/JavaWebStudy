@@ -69,12 +69,15 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="cn.edu.buaa.mybatis"/>
 			<item value="asda.asda"/>
 		</list>
 		<list key="groupId">
+			<item value="cn.edu.buaa"/>
 			<item value="asda"/>
 		</list>
 		<list key="artifactId">
+			<item value="mybatis"/>
 			<item value="asda"/>
 		</list>
 		<list key="projectNameTemplate">

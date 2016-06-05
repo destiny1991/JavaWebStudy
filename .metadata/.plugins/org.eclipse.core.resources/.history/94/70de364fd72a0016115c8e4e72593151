@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="/">
+
+	<select id="findById" parameterType="int" resultType="JikeUser">
+		select *
+		from jikeUser where id=#{id}
+	</select>
+
+	<insert id="insertUser" parameterType="JiKeUser" statementType="PREPARED"
+		keyProperty="id" useGeneratedKeys="true">
+		insert into jikeUser
+		(userName,password) values
+		(#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateUser" parameterType="JiKeUser">
+		update jikeUser set
+		userName=#{userName},password=#{password} where id = #{id}
+	</update>
+
+	<select id="loginSelect" parameterType="HashMap" resultType="JikeUser">
+		select * from jikeUser where userName=#{userName} and
+		password=#{password}
+	</select>
+
+	<resultMap id="JiKeUserMap" type="JiKeUser">
+		<id property="id" column="id" />
+		<result property="userName" column="userName" />
+		<result property="password" column="password" />
+	</resultMap>
+
+	<select id="selectUsers" resultMap="JiKeUserMap">
+		select id, userName, password
+		from jikeUser
+	</select>
+
+	<resultMap id="visitMap" type="JiKeUser">
+		<id property="id" column="id" />
+		<result property="userName" column="userName" />
+		<collection property="visitList" javaType="ArrayList"
+			column="visitID" ofType="cn.edu.buaa.pojo.Visit">
+			<result property="visitID" column="visitID" />
+			<result property="visitIP" column="visitIP" />
+			<result property="visitDate" column="visitDate" />
+		</collection>
+	</resultMap>
+	<select id="selectVisit" resultMap="visitMap">
+		select * from jikeUser inner
+		join visit on jikeUser.id = visit.userID
+	</select>
+
+	<!-- choose -->
+	<select id="selectJikeUserChoose" resultType="JikeUser"
+		parameterType="JikeUser">
+		select * from jikeuser where 1=1
+		<choose>
+			<when test="userName!=null">
+				and userName like #{userName}
+			</when>
+			<when test="id!=0">
+				and id =#{id}
+			</when>
+
+			<otherwise>
+				and password is not null
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- where -->
+	<select id="selectJiKeUserWhere" resultType="JikeUser"
+		parameterType="JieUser">
+		select * from jikeuser
+		<where>
+			<if test="userName!=null">
+				and userName like #{userName}
+			</if>
+			<if test="id!=null">
+				and id =#{id}
+			</if>
+		</where>
+	</select>
+
+	<!-- set -->
+	<update id="updateJikeUserSet" parameterType="JikeUser">
+		update jikeuser
+		<set>
+			<if test="userName != null">userName=#{userName},</if>
+			<if test="password != null">password=#{password},</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<!-- trim -->
+	<update id="updateUserTrim" parameterType="JieUser">
+		UPDATE jikeuser
+		<trim prefix="SET" suffixOverrides="," suffix="WHERE id = #{id}">
+			<if test="userName != null and userName != '' ">
+				userName = #{userName},
+			</if>
+			<if test="password != null and password != '' ">
+				password=#{password},
+			</if>
+		</trim>
+	</update>
+
+
+</mapper>

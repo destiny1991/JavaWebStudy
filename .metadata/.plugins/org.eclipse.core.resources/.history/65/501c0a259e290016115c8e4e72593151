@@ -1,0 +1,10 @@
+package cn.edu.buaa.test;
+
+public class Test1 {
+	
+	public static void main(String[] args) {
+		String src = "cn/edu/buaa/map/MyBatis.xml";
+		
+	}
+	
+}
